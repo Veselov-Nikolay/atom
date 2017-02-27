@@ -67,7 +67,7 @@ Player myPlayer = new Player();
 ```
 
 #HSLIDE
-### Constructor
+###Constructor
 ```java
 class Player {
     private int id;
