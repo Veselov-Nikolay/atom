@@ -117,7 +117,7 @@ Player customPlayer = new Player(10, "Niels Bohr");
 #### Looks good?
 
 #HSLIDE
-### Of cause *NO*
+### Of course *NO*
 ### Default constructor
 The default constructor is a no-argument constructor automatically generated unless you define any constructor in class.
 
