@@ -8,7 +8,7 @@ lecture 2
 https://atom.mail.ru/
 
 #HSLIDE
-# About me
+### About me
 <img src="https://avatars2.githubusercontent.com/u/710546?v=3&s=460" alt="me" style="width: 220px; float: left;"/>  
 
 - yan.brikl@gmail.com 
@@ -20,39 +20,45 @@ https://atom.mail.ru/
 **Люблю зеленые билды**  
 
 #HSLIDE
-# Agenda
+### Agenda
 1. Classes and objects
+1. Inheritance
+1. Interfaces
 1. Homework 2  
 
 #HSLIDE
-# Classes and objects 
+### Classes and objects 
 1. **[Classes and objects]**  
-1. Homework 2  
+1. Inheritance
+1. Interfaces
+1. Homework 2
 
 #HSLIDE 
-# Flashback
+### Flashback
+
 - Java is **object-oriented**, **class-based**
 - Java has static strong typization 
 
 #HSLIDE
-## Static strong typization
- - Static == compile time
+### Static strong typization
+
+- Static == compile time
     + \+ fast runtime
     + \+ errors in compile time
     - \- more time on prototyping
- - strong typization - *no strict definition*, example:
+- strong typization - *no strict definition*, example:
     ```java
     long num = 42; // <-- legal
     int mindTheGap = 42L; // <-- compilation error
     ```
  
 #HSLIDE
-## Object oriented
+### Object oriented
 - Everything is an object*
 - No code outside object
 
 #HSLIDE
-### Definition
+### `class` Definition
 ```java
 class Player {
     private int id;
@@ -79,23 +85,11 @@ class Player {
     }
 }
 ```
+
 ### Looks shitty
 
-#HSLIDE
-### Looks shitty
-```java
-class Player {
-    private int id;
-    private String name;
-    
-    public Player(int paramId, String paramName) {
-        id = paramId;
-        name = paramName;
-    }
-}
-```
+#VSLIDE
 
-#HSLIDE
 ### `this` keyword
 ```java
 class Player {
@@ -111,7 +105,9 @@ class Player {
 [Read more about `this`](https://docs.oracle.com/javase/tutorial/java/javaOO/thiskey.html)
 
 #HSLIDE
-#### OK, now we have a constructor `Player(int id, String name)`
+###OK, now we have a constructor
+ 
+`Player(int id, String name)`
 
 ```java
 Player simplePlayer = new Player();
@@ -120,8 +116,8 @@ Player customPlayer = new Player(10, "Niels Bohr");
 
 #### Looks good?
 
-#HSLIDE
-#### Of cause *NO*
+#VSLIDE
+### Of cause *NO*
 ### Default constructor
 The default constructor is a no-argument constructor automatically generated unless you define any constructor in class.
 
@@ -129,9 +125,17 @@ The default constructor is a no-argument constructor automatically generated unl
 
 [Read more on Stackoverflow](http://stackoverflow.com/questions/4488716/java-default-constructor)
 
+
+#HSLIDE
+### Classes and objects 
+1. Classes and objects  
+1. **[Inheritance]**
+1. Interfaces
+1. Homework 2
+
 #HSLIDE
 ### Inheritance
-Is-a relation
+#### Is-a relation
 
 ```java
 class Message { 
@@ -156,7 +160,6 @@ assertThat(message, is(instanceOf(Message.class))); <-- OK
 ### `instanceof` **is not** slow	
 
 
-
 #HSLIDE
 ### `Object` class
 Everything is instance of object.
@@ -175,7 +178,7 @@ I want:
 TitlesMessage message = new TitledMessage(title, content);
 ```
 
-#HSLIDE
+#VSLIDE
 ### Constructors and inheritance
 
 ```java
@@ -188,7 +191,7 @@ class Message {
 }
 ```
 
-#HSLIDE
+#VSLIDE
 ### Constructors and inheritance
 
 ```java
@@ -209,7 +212,7 @@ class Message {
 }
 ```
 
-#HSLIDE
+#VSLIDE
 ### super
 
 ```java
@@ -230,7 +233,7 @@ class Message {
     }
 }
 ```
-˚
+
 #HSLIDE 
 # 3. Basic syntax 
 1. Course structure  
