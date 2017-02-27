@@ -9,7 +9,7 @@ https://atom.mail.ru/
 
 #HSLIDE
 ### About me
-![me](https://avatars2.githubusercontent.com/u/710546?v=3&s=460 =200x200)
+<img src="https://avatars2.githubusercontent.com/u/710546?v=3&s=460" alt="me" style="width: 120px;"/>
     
 - yan.brikl@gmail.com 
 - [https://github.com/rybalkinsd](https://github.com/rybalkinsd)
