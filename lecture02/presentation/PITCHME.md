@@ -40,7 +40,7 @@ https://atom.mail.ru/
     + \+ fast runtime
     + \+ errors in compile time
     - \- more time on prototyping
- - strong typization - *no strict definition* example:
+ - strong typization - *no strict definition*, example:
     ```java
     long num = 42; // <-- legal
     int mindTheGap = 42L; // <-- compilation error
@@ -78,7 +78,8 @@ class Player {
         name = paramName;
     }
 }
-``` 
+```
+### Looks shitty
 
 #HSLIDE
 ### Looks shitty
@@ -229,7 +230,7 @@ class Message {
     }
 }
 ```
-
+˚
 #HSLIDE 
 # 3. Basic syntax 
 1. Course structure  
