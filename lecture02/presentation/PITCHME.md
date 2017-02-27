@@ -147,7 +147,7 @@ class TitledMessage extends Message {
 }
 ```
 
-**`Titled message` is a `Message`**
+Titled message **is a** Message
 
 #HSLIDE
 ### `instanceof` operator, miss me?
@@ -161,7 +161,7 @@ assertThat(message, is(instanceOf(Message.class))); <-- OK
 
 
 #HSLIDE
-### `Object` class
+### `Object` class #1
 Everything is instance of object.
 
 ```java
@@ -236,6 +236,7 @@ class Message {
 
 #HSLIDE
 ### Methods
+Declaration
 ```java
 class Message {
     private String content;
@@ -248,12 +249,19 @@ class Message {
 }
 ```
 
+Usage
+```java
+Message message = new Message("my content");
+message.getContent();
+
+assertThat(message.getContent(), is(equalTo("my content")));
+```
+
 #HSLIDE
 ### Methods, overloading
 
 Lets add some "pagination"
 ```java
-
 class Message {
     private static final int CHARS_PER_PAGE = 256;
     private String content;
@@ -264,11 +272,14 @@ class Message {
     
     private String getContent(int pageNum) {
         if (pageNum < 0) {
-            throw new IllegalArgumentException("Page number should be >= 0, got " + pageNum);
+            throw new IllegalArgumentException(
+                    "Page number should be >= 0, got " + pageNum);
         }
             
-        return content.substring(pageNum * CHARS_PER_PAGE, (pageNum + 1) * CHARS_PER_PAGE);
+        return content.substring(pageNum * CHARS_PER_PAGE, 
+            (pageNum + 1) * CHARS_PER_PAGE);
     }
+    
     // ...
 }
 ```
@@ -285,11 +296,8 @@ class TitledMessage extends Message {
         return "Title: " + this.title + ".\n" + getContent();
         
     }
-
     
-    public TitledMessage(String title, String content) {
-        // hmmmm
-    }
+    // ...
 }
 ```
 
@@ -300,15 +308,55 @@ Instance method in a subclass with the *same signature* (name, plus the number a
 and *return type* as an instance method in the superclass *overrides* the superclass's method.
 
 [Read more in official docs](https://docs.oracle.com/javase/tutorial/java/IandI/override.html)
+
 **Note:** @Override is *just an annotation to declare* your intentions to override method 
 
 
+#HSLIDE
+### `Object` class #2
 ```java
-Message message = new Message("my content");
-message.getContent();
+class Object {
+    public boolean equals(Object obj)
+    public int hashCode()
+    public String toString()
 
-assertThat(message.getContent(), is(equalTo("my content")));
+    public final Class getClass()
+    protected Object clone() throws CloneNotSupportedException
+    protected void finalize() throws Throwable
+}
 ```
+
+#HSLIDE
+### So
+
+```java
+class Message {
+    private String content;
+    
+    @Override
+    public String toString() {
+        return content;
+    }
+}
+```
+
+#HSLIDE
+### Polymorphism, One more thing #1
+
+```java
+Message message = new TitledMessage("Awesome title", "Perfect content");
+
+message instanceOf TitledMessage <-- It is true 
+```
+
+#HSLIDE
+### Polymorphism, One more thing #2
+
+Override resolves method in **runtime**
+
+*Note:*
+Overload resolves method in **compile-time**
+
 
 #HSLIDE 
 # 6. Homework 1 
