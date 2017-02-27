@@ -1,4 +1,4 @@
-package ru.atom.samples.instantiation;
+package ru.atom.instantiation;
 
 import org.junit.Test;
 

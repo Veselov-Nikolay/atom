@@ -1,4 +1,4 @@
-package ru.atom.samples.exception;
+package ru.atom.exception;
 
 import java.io.*;
 

@@ -11,11 +11,9 @@ https://atom.mail.ru/
 # About me
 <img src="https://avatars2.githubusercontent.com/u/710546?v=3&s=460" alt="me" style="width: 220px; float: left;"/>  
 
-  yan.brikl@gmail.com 
-  [https://github.com/rybalkinsd](https://github.com/rybalkinsd)  
-
-  Java 5+ years
-
+- yan.brikl@gmail.com 
+- [https://github.com/rybalkinsd](https://github.com/rybalkinsd)  
+- Java 5+ years
 - Yandex, Allods Team (mail.ru group)
 - Currently Senior Software Engineer at AliExpress.com
 
@@ -36,13 +34,6 @@ https://atom.mail.ru/
 - Java is **object-oriented**, **class-based**
 - Java has static strong typization 
 
-
-#HSLIDE
-## Object oriented
-- Everything is an object*
-- No code outside object
-
-
 #HSLIDE
 ## Static strong typization
  - Static == compile time
@@ -55,6 +46,11 @@ https://atom.mail.ru/
     int mindTheGap = 42L; // <-- compilation error
     ```
  
+#HSLIDE
+## Object oriented
+- Everything is an object*
+- No code outside object
+
 #HSLIDE
 ### Definition
 ```java
@@ -125,10 +121,114 @@ Player customPlayer = new Player(10, "Niels Bohr");
 
 #HSLIDE
 #### Of cause *NO*
+### Default constructor
+The default constructor is a no-argument constructor automatically generated unless you define any constructor in class.
 
-No-arguments constructor is *defined* in class 
-if and only if no other constructor is defined&
+[Read more in official docs](https://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html)
 
+[Read more on Stackoverflow](http://stackoverflow.com/questions/4488716/java-default-constructor)
+
+#HSLIDE
+### Inheritance
+Is-a relation
+
+```java
+class Message { 
+    private String content;
+}
+
+class TitledMessage extends Message {
+    private String title;
+}
+```
+
+**`Titled message` is a `Message`**
+
+#HSLIDE
+### `instanceof` operator, miss me?
+
+```java
+assertTrue(message instanceof Message); <-- OK
+assertThat(message, is(instanceOf(Message.class))); <-- OK
+```
+
+### `instanceof` **is not** slow	
+
+
+
+#HSLIDE
+### `Object` class
+Everything is instance of object.
+
+```java
+// Informally
+class Message extends Object { 
+}
+```
+
+#HSLIDE
+### Constructors and inheritance
+
+I want:
+```java
+TitlesMessage message = new TitledMessage(title, content);
+```
+
+#HSLIDE
+### Constructors and inheritance
+
+```java
+class Message {
+    private String content;
+    
+    public Message(String content) {
+        this.content = content;
+    }
+}
+```
+
+#HSLIDE
+### Constructors and inheritance
+
+```java
+class TitledMessage extends Message {
+    private String title;
+    
+    public TitledMessage(String title, String content) {
+        // hmmmm
+    }
+}
+
+class Message {
+    private String content;
+    
+    public Message(String content) {
+        this.content = content;
+    }
+}
+```
+
+#HSLIDE
+### super
+
+```java
+class TitledMessage extends Message {
+    private String title;
+    
+    public TitledMessage(String title, String content) {
+       super(content);
+       this.title = title;
+    }
+}
+
+class Message {
+    private String content;
+    
+    public Message(String content) {
+        this.content = content;
+    }
+}
+```
 
 #HSLIDE 
 # 3. Basic syntax 

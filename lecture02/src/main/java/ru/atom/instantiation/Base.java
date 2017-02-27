@@ -1,4 +1,4 @@
-package ru.atom.samples.instantiation;
+package ru.atom.instantiation;
 
 public class Base {
     private static int integer1 = 1;
