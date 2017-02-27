@@ -12,12 +12,18 @@ https://atom.mail.ru/
 <span>
     <img src="https://avatars2.githubusercontent.com/u/710546?v=3&s=460" alt="me" style="width: 220px; float: left;"/>
 </span>
+
 <span>
-    - yan.brikl@gmail.com 
-    - [https://github.com/rybalkinsd](https://github.com/rybalkinsd)  
-    - Java 5+ years
-    - Yandex, Allods Team (mail.ru group)
-    - Currently Senior Software Engineer at AliExpress.com
+ yan.brikl@gmail.com 
+ 
+ [https://github.com/rybalkinsd](https://github.com/rybalkinsd)
+   
+ Java 5+ years
+ 
+ Yandex, Allods Team (mail.ru group)
+ 
+ Currently Senior Software Engineer at AliExpress.com
+ 
 </span>
 **Люблю зеленые билды**  
 
