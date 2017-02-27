@@ -9,7 +9,6 @@ https://atom.mail.ru/
 
 #HSLIDE
 ### About me
-<div>
     <span>
         <img src="https://avatars2.githubusercontent.com/u/710546?v=3&s=460" alt="me" style="width: 220px; float: left;"/>
     </span>
@@ -26,7 +25,6 @@ https://atom.mail.ru/
      Currently Senior Software Engineer at AliExpress.com
      
     </span>
-<div>
 
 **Люблю зеленые билды**  
 
