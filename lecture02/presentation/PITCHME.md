@@ -169,16 +169,24 @@ Titled message **is a** Message
 ### Access modifiers
 
 1. **private** - only from class code
+    ```java
+    private Object topSecret; 
+    ```
 
-    `private Object topSecret;` 
 1. **protected** - as private + from subclasses
+    ```java
+    protected Boolean секретик;
+    ```
 
-    `protected Boolean секретик;`
 1. **default** (package private) - as protected + within package
+    ```java
+    int number = 42;
+    ```
 
-    `int number = 42;`
 1. **public** - worldwide
-    `public String getMe;`
+    ```java
+    public String getMe;
+    ```
 
 [Read more in official docs](https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html)
 
