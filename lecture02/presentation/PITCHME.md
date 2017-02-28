@@ -71,6 +71,15 @@ Player myPlayer = new Player();
 ```
 
 #HSLIDE
+### Behind the scenes 
+| Instruction               | Thread Stack              | Heap                          |
+|:-----------------         |:---------------------     | :-----------------------------|
+| Player pOne = new Player()| pOne ----------->         | allocated Player(), address <UNIQUE_ADDR          |
+| Player pTwo = new Player()| pTwo ----------->         | allocated Player(), address <OTHER_UNIQUE_ADDR    |
+
+### pOne != pTwo
+
+#HSLIDE
 ###Constructor
 ```java
 class Player {
@@ -161,10 +170,13 @@ Titled message **is a** Message
 ### Access modifiers
 
 1. **private** - only from class code
+
     `private Object topSecret;` 
 1. **protected** - as private + from subclasses
+
     `protected Boolean секретик;`
 1. **default** (package private) - as protected + within package
+
     `int number = 42;`
 1. **public** - worldwide
     `public String getMe;`
@@ -587,27 +599,27 @@ Fundamental classes are in java.lang
 #HSLIDE
 ### `final` keyword
 
-1. constant declaration 
-    ```java
-    class Utils {
-        public final int DEFAULT_MAX = 0;
-    }
-    ```
+- constant declaration 
+```java
+class Utils {
+    public final int DEFAULT_MAX = 0;
+}
+```
     
-1. final method (forbidden override)
-    ```java
-    class Message {
-        public final String getContent() { 
-           return content; 
-        } 
-    }
-    ```
+- final method (forbidden override)
+```java
+class Message {
+    public final String getContent() { 
+       return content; 
+    } 
+}
+```
     
-1. final class (forbidden inheritance)
-    ```java
-        final class Message {
-        }
-    ```
+- final class (forbidden inheritance)
+```java
+    final class Message {
+    }
+```
 
 #HSLIDE
 **Оставьте обратную связь**
