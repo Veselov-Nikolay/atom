@@ -1,7 +1,5 @@
 package ru.atom.enums;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 /**
  * Created by sergey on 2/28/17.
  */
@@ -11,6 +9,16 @@ public enum Gender {
     Other;
 
     public boolean isLegalCouple(Country country, Gender partner) {
-        throw new NotImplementedException();
+        switch (country) {
+            case Russia:
+                return this != partner
+                        && this != Other
+                        && partner != Other;
+            case Netherlands:
+            case USA:
+                return true;
+            default:
+                return false;
+        }
     }
 }

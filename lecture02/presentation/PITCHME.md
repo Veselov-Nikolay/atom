@@ -629,6 +629,23 @@ final class Message {
 ```
 
 #HSLIDE
+### Bonus - gradlew build
+```bash
+# build fat jar @see build.gradle in lecture02 submodule 
+> ./gradlew :lecture02:jar
+> blah-blah
+> BUILD SUCCESSFUL
+
+> java -jar lecture02/build/libs/lecture02-1.0-SNAPSHOT.jar 
+> Hello, World!
+
+# jar listing
+> jar -tfv  lecture02/build/libs/lecture02-1.0-SNAPSHOT.jar
+
+```
+
+
+#HSLIDE
 **Оставьте обратную связь**
 (вам на почту придет анкета)  
 
