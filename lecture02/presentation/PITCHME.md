@@ -160,10 +160,10 @@ Titled message **is a** Message
 #HSLIDE
 ### Access modifiers
 
-1. private - only from class code
-1. protected - as private + from subclasses
-1. default (package private) - as protected + within package 
-1. public - worldwide
+1. **private** - only from class code
+1. **protected** - as private + from subclasses
+1. **default** (package private) - as protected + within package 
+1. **public** - worldwide
 
 [Read more in official docs](https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html)
 
@@ -180,7 +180,7 @@ assertThat(message, is(instanceOf(Message.class))); // <-- OK
 
 #HSLIDE
 ### `Object` class #1
-Everything is instance of `Object`.
+Everything* is instance of `Object`.
 
 ```java
 // Informally
@@ -342,7 +342,7 @@ class TitledMessage extends Message {
     
     @Override
     public String getContent() {
-        return "Title: " + this.title + ".\n" + getContent();§
+        return "Title: " + this.title + ".\n" + getContent();
     }
     // ...
 }
@@ -494,21 +494,51 @@ public class Englishman {
 #HSLIDE
 ### abstract class vs interface
 
-| Type              | Interface             | Abstract class                |
-| ----------------- |:---------------------:| -----------------------------:|
+|                   | Interface             | Abstract class                |
+|:----------------- |:--------------------- | :-----------------------------|
 | Inheritance       | implement many        | extend one                    |
 | Fields            | public static only    | no limits                     |
 | Access modifiers  | public only           | no abstract private methods   |
 | Constructors      | no constructors       | no limits                     |
 
 
-#HSLIDE 
-1. Course structure  
-2. Language architecture  
-3. Basic syntax  
-4. Git  
-5. Gradle  
-6. **[Homework 2]**  
+#HSLIDE
+1. Classes and objects  
+1. Inheritance
+1. Interface and Abstract class
+1. **[Enum]**
+1. Homework 2
+
+#HSLIDE
+### Enum
+```java
+enum Gender {
+    Male,
+    Female,
+    Other;
+
+    public boolean isLegal(Country country, Gender partner) {
+        throw new NotImplementedException();
+    }
+}
+```
+
+No inheritance for enums.
+
+Interfaces are allowed.
+
+#HSLIDE
+### Enum
+
+@See ru.atom.enums 
+
+
+#HSLIDE
+1. Classes and objects  
+1. Inheritance
+1. Interface and Abstract class
+1. Enum
+1. **[Homework 2]**
 
 #HSLIDE
 # Homework 2
@@ -521,20 +551,6 @@ public class Englishman {
 
 **Deadline:** 1 March  
 **Mark:** 5 points
-
-#HSLIDE
-## Литература
-**Thinking in Java** (в русском переводе - философия Java)  
-[https://www.amazon.com/Thinking-Java-4th-Bruce-Eckel/dp/0131872486](https://www.amazon.com/Thinking-Java-4th-Bruce-Eckel/dp/0131872486)  
-  
-Хорошая книга, придерживаться ее мы, конечно, не будем
-
-#HSLIDE
-## IDE
-**Intellij IDEA**  
-[https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)  
-  
-**Community edition** будет достаточно, но для студентов часто бесплатно предоставляют **professional edition**
 
 #HSLIDE
 **Оставьте обратную связь**
