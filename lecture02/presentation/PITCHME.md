@@ -27,6 +27,7 @@ https://atom.mail.ru/
 1. Enum
 
 #HSLIDE
+### Classes and objects
 1. **[Classes and objects]**  
 1. Inheritance
 1. Interface and Abstract class
@@ -34,13 +35,11 @@ https://atom.mail.ru/
 
 #HSLIDE 
 ### Flashback
-
 - Java is **object-oriented**, **class-based**
 - Java has static strong typization 
 
 #HSLIDE
 ### Static strong typization
-
 - Static == compile time
     + \+ fast runtime
     + \+ errors in compile time
@@ -54,7 +53,7 @@ https://atom.mail.ru/
 #HSLIDE
 ### Object oriented
 - Everything is an object*
-- No code outside object
+- No code outside class
 
 #HSLIDE
 ### `class` Definition
@@ -88,7 +87,6 @@ class Player {
 Looks shitty
 
 #HSLIDE
-
 ### `this` keyword
 ```java
 class Player {
@@ -104,7 +102,7 @@ class Player {
 [Read more about `this`](https://docs.oracle.com/javase/tutorial/java/javaOO/thiskey.html)
 
 #HSLIDE
-###OK, now we have a constructor
+### OK, now we have a constructor
  
 `Player(int id, String name)`
 
@@ -131,6 +129,7 @@ The default constructor is a no-argument constructor automatically generated **u
 
 
 #HSLIDE
+### Inheritance
 1. Classes and objects  
 1. **[Inheritance]**
 1. Interface and Abstract class
@@ -153,14 +152,22 @@ Titled message **is a** Message
 
 #### Single class – single superclass
 
+#HSLIDE
+# Java does not support multiple inheritance
+
+
 
 #HSLIDE
 ### Access modifiers
 
 1. **private** - only from class code
+    `private Object topSecret;` 
 1. **protected** - as private + from subclasses
-1. **default** (package private) - as protected + within package 
+    `protected Boolean секретик;`
+1. **default** (package private) - as protected + within package
+    `int number = 42;`
 1. **public** - worldwide
+    `public String getMe;`
 
 [Read more in official docs](https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html)
 
@@ -168,6 +175,8 @@ Titled message **is a** Message
 ### `instanceof` operator, miss me?
 
 ```java
+Message message = new Message();
+
 assertTrue(message instanceof Message); // <-- OK
 assertThat(message, is(instanceOf(Message.class))); // <-- OK
 ```
@@ -348,12 +357,12 @@ class TitledMessage extends Message {
 #HSLIDE
 ### Override definition
 
-Instance method in a subclass with the *same signature* (name, plus the number and the type of its parameters) 
-and *return type* as an instance method in the superclass *overrides* the superclass's method.
+Instance method in a subclass with the **same signature** (name, plus the number and the type of its parameters) 
+and **return type** as an instance method in the superclass **overrides** the superclass's method.
 
 [Read more in official docs](https://docs.oracle.com/javase/tutorial/java/IandI/override.html)
 
-**Note:** `@Override` is *just an annotation to declare* your intentions to override method 
+**Note:** `@Override` is **just an annotation to declare** your intentions to override method 
 
 
 #HSLIDE
@@ -408,6 +417,7 @@ Overload resolves method in **compile-time**
 
 
 #HSLIDE
+### Interface and Abstract class
 1. Classes and objects  
 1. Inheritance
 1. **[Interface and Abstract class]**
@@ -583,6 +593,7 @@ Fundamental classes are in java.lang
         public final int DEFAULT_MAX = 0;
     }
     ```
+    
 1. final method (forbidden override)
     ```java
     class Message {
@@ -591,6 +602,7 @@ Fundamental classes are in java.lang
         } 
     }
     ```
+    
 1. final class (forbidden inheritance)
     ```java
         final class Message {
