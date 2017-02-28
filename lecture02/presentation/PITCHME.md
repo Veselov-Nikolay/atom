@@ -71,13 +71,12 @@ Player myPlayer = new Player();
 ```
 
 #HSLIDE
-### Behind the scenes 
-| Instruction               | Thread Stack    | Heap                          |
-|:------------------------------|:-----------| :-----------------------------|
-| Player pOne = new Player()    | pOne --->  | allocated Player(), address <UNIQUE_ADDR          |
-| Player pTwo = new Player()    | pTwo --->  | allocated Player(), address <OTHER_UNIQUE_ADDR    |
-
-### pOne != pTwo
+### Behind the scenes
+<img src="lecture02/presentation/assets/img/allocation.png" alt="me" style="width: 750px;"/>
+ 
+**pOne != pTwo**
+ 
+**pTwo == winner**
 
 #HSLIDE
 ###Constructor
