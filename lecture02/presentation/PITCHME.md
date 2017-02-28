@@ -23,14 +23,13 @@ https://atom.mail.ru/
 ### Agenda
 1. Classes and objects
 1. Inheritance
-1. Interfaces
+1. Interface and abstract class
 1. Homework 2  
 
 #HSLIDE
-### Classes and objects 
 1. **[Classes and objects]**  
 1. Inheritance
-1. Interfaces
+1. Interface and Abstract class
 1. Homework 2
 
 #HSLIDE 
@@ -117,9 +116,14 @@ Player customPlayer = new Player(10, "Niels Bohr");
 #### Looks good?
 
 #HSLIDE
-### Of course *NO*
 ### Default constructor
-The default constructor is a no-argument constructor automatically generated unless you define any constructor in class.
+
+Of course *NO*.
+```java
+Player simplePlayer = new Player(); // <-- Compilation error
+```
+
+The default constructor is a no-argument constructor automatically generated **unless** you define any constructor in class.
 
 [Read more in official docs](https://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html)
 
@@ -127,10 +131,9 @@ The default constructor is a no-argument constructor automatically generated unl
 
 
 #HSLIDE
-### Classes and objects 
 1. Classes and objects  
 1. **[Inheritance]**
-1. Interfaces
+1. Interface and Abstract class
 1. Homework 2
 
 #HSLIDE
@@ -146,15 +149,17 @@ class TitledMessage extends Message {
     private String title;
 }
 ```
-
 Titled message **is a** Message
+
+### Single class – single superclass
+
 
 #HSLIDE
 ### `instanceof` operator, miss me?
 
 ```java
-assertTrue(message instanceof Message); <-- OK
-assertThat(message, is(instanceOf(Message.class))); <-- OK
+assertTrue(message instanceof Message); // <-- OK
+assertThat(message, is(instanceOf(Message.class))); // <-- OK
 ```
 
 ### `instanceof` **is not** slow	
@@ -162,12 +167,16 @@ assertThat(message, is(instanceOf(Message.class))); <-- OK
 
 #HSLIDE
 ### `Object` class #1
-Everything is instance of object.
+Everything is instance of `Object`.
 
 ```java
 // Informally
 class Message extends Object { 
 }
+```
+
+```java
+assertThat(message, is(instanceOf(Object.class))); // <-- OK
 ```
 
 #HSLIDE
@@ -254,7 +263,7 @@ Usage
 Message message = new Message("my content");
 message.getContent();
 
-assertThat(message.getContent(), is(equalTo("my content")));
+assertThat(message.getContent(), is(equalTo("my content"))); // <-- OK
 ```
 
 #HSLIDE
@@ -285,9 +294,36 @@ class Message {
 ```
 
 #HSLIDE
+### `static` keyword
+
+static - "common for all class instances"
+
+Definition
+```java
+class Utils {
+    public static final int DEFAULT_MAX = 0;
+    public static int getMax(int[] values) {
+        if (values == null || values.length == 0) {
+            return DEFAULT_MAX;
+        }
+        
+        return Arrays.stream(values)
+                .max()
+                .getAsInt();    
+    }
+}
+```
+
+Usage
+```java
+int max = Utils.getMax(new int[] {1,2,3});
+System.out.println(Utils.DEFAULT_MAX);
+
+```
+
+#HSLIDE
 ### Methods, polymorphism
 ```java
-
 class TitledMessage extends Message {
     private String title;
     
@@ -309,7 +345,7 @@ and *return type* as an instance method in the superclass *overrides* the superc
 
 [Read more in official docs](https://docs.oracle.com/javase/tutorial/java/IandI/override.html)
 
-**Note:** @Override is *just an annotation to declare* your intentions to override method 
+**Note:** `@Override` is *just an annotation to declare* your intentions to override method 
 
 
 #HSLIDE
@@ -323,6 +359,7 @@ class Object {
     public final Class getClass()
     protected Object clone() throws CloneNotSupportedException
     protected void finalize() throws Throwable
+    // ...
 }
 ```
 
@@ -349,6 +386,10 @@ Message message = new TitledMessage("Awesome title", "Perfect content");
 message instanceOf TitledMessage <-- It is true 
 ```
 
+**Do not** disclose the details of implementation (without need).
+
+Сonsequence - use "interface" wherever you can.
+
 #HSLIDE
 ### Polymorphism, One more thing #2
 
@@ -358,6 +399,75 @@ Override resolves method in **runtime**
 Overload resolves method in **compile-time**
 
 
+#HSLIDE
+1. Classes and objects  
+1. Inheritance
+1. **[Interface and Abstract class]**
+1. Homework 2
+
+#HSLIDE
+### `interface` definition
+
+```java
+interface Storable {
+    void saveTo(File file); 
+}
+```
+
+#HSLIDE
+### `interface` usage
+
+```java
+class Message implements Storable {
+    private String content;
+    
+    @Override
+    public void saveTo(File file) {
+        // some stuff to save Message to file
+    }  
+    
+    // ...
+} 
+```
+
+```java
+Storable smthToSave = new Message("Perfect content");
+smthToSave.saveTo(new File("path to file"));
+
+assertThat(smthToSave, is(instanceOf(Message.class))); // <-- OK
+assertThat(smthToSave, is(instanceOf(Storable.class))); // <-- OK
+
+```
+
+#HSLIDE
+### Single class - multiple interfaces
+
+```java
+class Message implements Storable, Sandable, Readable {
+}
+```
+
+
+#HSLIDE
+### Interface inheritance
+
+```java
+interface FaultTolerantStorable extends Storable, Serializable {
+    void handleStoreErrors();
+    
+    default boolean checkStored(File file) {
+        return file != null && file.exists();
+    }
+    
+}
+```
+
+#HSLIDE
+### `abstract` class
+
+
+
+
 #HSLIDE 
 # 6. Homework 1 
 1. Course structure  
@@ -365,12 +475,12 @@ Overload resolves method in **compile-time**
 3. Basic syntax  
 4. Git  
 5. Gradle  
-6. **[Homework 1]**  
+6. **[Homework 2]**  
 
 #HSLIDE
-# Homework 1
+# Homework 2
 1. Fix tests in branch **homework1** and push it to **your fork**  
-[[Github branch]](https://github.com/rybalkinsd/atom/tree/homework1)
+[[Github branch]](https://github.com/rybalkinsd/atom/tree/homework2)
 [[Travis build]](https://travis-ci.org/rybalkinsd/atom/builds/204177834)
 2. Make pull request to **course repository**
 [https://github.com/rybalkinsd/atom](https://github.com/rybalkinsd/atom)

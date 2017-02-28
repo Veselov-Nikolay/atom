@@ -1,4 +1,4 @@
-package ru.atom.message;
+package ru.atom.message.example1;
 
 import org.junit.Test;
 

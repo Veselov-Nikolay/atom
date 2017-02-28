@@ -1,4 +1,4 @@
-package ru.atom.message;
+package ru.atom.message.example1;
 
 /**
  * Created by sergey on 2/27/17.
