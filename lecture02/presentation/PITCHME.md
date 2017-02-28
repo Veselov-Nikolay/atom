@@ -624,8 +624,8 @@ class Message {
     
 - final class (forbidden inheritance)
 ```java
-    final class Message {
-    }
+final class Message {
+}
 ```
 
 #HSLIDE
