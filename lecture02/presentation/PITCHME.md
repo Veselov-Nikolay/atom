@@ -24,12 +24,14 @@ https://atom.mail.ru/
 1. Classes and objects
 1. Inheritance
 1. Interface and abstract class
+1. Enum
 1. Homework 2  
 
 #HSLIDE
 1. **[Classes and objects]**  
 1. Inheritance
 1. Interface and Abstract class
+1. Enum
 1. Homework 2
 
 #HSLIDE 
@@ -134,6 +136,7 @@ The default constructor is a no-argument constructor automatically generated **u
 1. Classes and objects  
 1. **[Inheritance]**
 1. Interface and Abstract class
+1. Enum
 1. Homework 2
 
 #HSLIDE
@@ -151,8 +154,18 @@ class TitledMessage extends Message {
 ```
 Titled message **is a** Message
 
-### Single class – single superclass
+#### Single class – single superclass
 
+
+#HSLIDE
+### Access modifiers
+
+1. private - only from class code
+1. protected - as private + from subclasses
+1. default (package private) - as protected + within package 
+1. public - worldwide
+
+[Read more in official docs](https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html)
 
 #HSLIDE
 ### `instanceof` operator, miss me?
@@ -162,7 +175,7 @@ assertTrue(message instanceof Message); // <-- OK
 assertThat(message, is(instanceOf(Message.class))); // <-- OK
 ```
 
-### `instanceof` **is not** slow	
+`instanceof` **is not** slow	
 
 
 #HSLIDE
@@ -316,7 +329,7 @@ class Utils {
 
 Usage
 ```java
-int max = Utils.getMax(new int[] {1,2,3});
+int max = Utils.getMax(new int[] {1, 2, 3});
 System.out.println(Utils.DEFAULT_MAX);
 
 ```
@@ -329,10 +342,8 @@ class TitledMessage extends Message {
     
     @Override
     public String getContent() {
-        return "Title: " + this.title + ".\n" + getContent();
-        
+        return "Title: " + this.title + ".\n" + getContent();§
     }
-    
     // ...
 }
 ```
@@ -403,6 +414,7 @@ Overload resolves method in **compile-time**
 1. Classes and objects  
 1. Inheritance
 1. **[Interface and Abstract class]**
+1. Enum
 1. Homework 2
 
 #HSLIDE
@@ -443,7 +455,7 @@ assertThat(smthToSave, is(instanceOf(Storable.class))); // <-- OK
 ### Single class - multiple interfaces
 
 ```java
-class Message implements Storable, Sandable, Readable {
+class Message implements Storable, Sendable, Readable {
 }
 ```
 
@@ -464,12 +476,33 @@ interface FaultTolerantStorable extends Storable, Serializable {
 
 #HSLIDE
 ### `abstract` class
+```java
+public abstract class AbstractHuman {
+    protected String name;
+    public abstract String sayHi();
+}
 
+public class Englishman {
+    
+    @Override
+    public String sayHi() {
+        return "Hi, I'm" + name;
+    }
+}
+```
 
+#HSLIDE
+### abstract class vs interface
+
+| Type              | Interface             | Abstract class                |
+| ----------------- |:---------------------:| -----------------------------:|
+| Inheritance       | implement many        | extend one                    |
+| Fields            | public static only    | no limits                     |
+| Access modifiers  | public only           | no abstract private methods   |
+| Constructors      | no constructors       | no limits                     |
 
 
 #HSLIDE 
-# 6. Homework 1 
 1. Course structure  
 2. Language architecture  
 3. Basic syntax  
