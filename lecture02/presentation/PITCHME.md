@@ -25,14 +25,12 @@ https://atom.mail.ru/
 1. Inheritance
 1. Interface and abstract class
 1. Enum
-1. Homework 2  
 
 #HSLIDE
 1. **[Classes and objects]**  
 1. Inheritance
 1. Interface and Abstract class
 1. Enum
-1. Homework 2
 
 #HSLIDE 
 ### Flashback
@@ -137,7 +135,6 @@ The default constructor is a no-argument constructor automatically generated **u
 1. **[Inheritance]**
 1. Interface and Abstract class
 1. Enum
-1. Homework 2
 
 #HSLIDE
 ### Inheritance
@@ -415,7 +412,6 @@ Overload resolves method in **compile-time**
 1. Inheritance
 1. **[Interface and Abstract class]**
 1. Enum
-1. Homework 2
 
 #HSLIDE
 ### `interface` definition
@@ -507,7 +503,6 @@ public class Englishman {
 1. Inheritance
 1. Interface and Abstract class
 1. **[Enum]**
-1. Homework 2
 
 #HSLIDE
 ### Enum
@@ -534,23 +529,73 @@ Interfaces are allowed.
 
 
 #HSLIDE
-1. Classes and objects  
-1. Inheritance
-1. Interface and Abstract class
-1. Enum
-1. **[Homework 2]**
+### All together now
+```java
+package ru.atom.model.object.actor;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import ru.atom.model.object.GameObject;
+import ru.atom.util.V;
+
+public class Actor extends GameObject implements Tickable {
+    private final static Logger log = LogManager.getLogger(Actor.class);
+    private V velocity;
+
+    @Override
+    public void tick(long time) {
+        V before = position;
+        move(time);
+        log.info("Moved: {} -> {}.", before, position);
+
+    }
+
+    private void move(long time) {
+        position = position.move(velocity.times(time));
+    }
+
+    public final Actor setVelocity(V velocity) {
+        this.velocity = velocity;
+        return this;
+    }
+}
+```
 
 #HSLIDE
-# Homework 2
-1. Fix tests in branch **homework1** and push it to **your fork**  
-[[Github branch]](https://github.com/rybalkinsd/atom/tree/homework2)
-[[Travis build]](https://travis-ci.org/rybalkinsd/atom/builds/204177834)
-2. Make pull request to **course repository**
-[https://github.com/rybalkinsd/atom](https://github.com/rybalkinsd/atom)
-3. Make sure **tests** and **checkstyle** are passing in **Travis**  
+### packages and import
+ **Package** is a grouping of related types providing access protection and name space management.
+ 
+ - make types easier to find and use
+ - avoid naming conflicts
+ - control access
+ 
+Fundamental classes are in java.lang
 
-**Deadline:** 1 March  
-**Mark:** 5 points
+[Read more in official docs](https://docs.oracle.com/javase/tutorial/java/package/packages.html)
+
+
+#HSLIDE
+### `final` keyword
+
+1. constant declaration 
+    ```java
+    class Utils {
+        public final int DEFAULT_MAX = 0;
+    }
+    ```
+1. final method (forbidden override)
+    ```java
+    class Message {
+        public final String getContent() { 
+           return content; 
+        } 
+    }
+    ```
+1. final class (forbidden inheritance)
+    ```java
+        final class Message {
+        }
+    ```
 
 #HSLIDE
 **Оставьте обратную связь**
